@@ -40,8 +40,9 @@ ll bigmod(ll b, ll p, ll m)
 }
 bool isprime(ll n, int iter = 20)
 {
-	if (n <= 4)
-		return n == 2 || n == 3;
+	if (n < 4)
+		if ( n == 2 || n == 3)
+			return true;
 	for (int i = 1; i <= iter; i++)
 	{
 		ll a = 2 + rand() % (n - 3);
