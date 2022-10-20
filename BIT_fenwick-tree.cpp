@@ -8,7 +8,7 @@ void oj()
 
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+	freopen("Output.txt", "w", stdout);
 #endif
 }
 #define mx 100000
@@ -47,14 +47,14 @@ int main()
 		cin >> a[i];
 		update(i, n, a[i]);
 	}
-	for (int i = 1; i <= n; i++)
-		cout << a[i] << " ";
-	cout << endl;
+	// for (int i = 1; i <= n; i++)
+	// 	cout << a[i] << " ";
+	// cout << endl;
 	//update(5, n, 5);
 	for (int i = 1; i <= n; i++)
 		cout << tree[i] << " ";
 	cout << endl;
-	cout << query(7) - query(4) << endl;
+	cout << query(n) << endl;
 
 
 
