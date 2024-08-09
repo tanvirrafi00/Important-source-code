@@ -1,147 +1,107 @@
 #include<bits/stdc++.h>
+
+
 using namespace std;
-#define ll long long
-bool arr[100000001];
-vector<int>v;
-void sieve()
-{
-    long int n;
-    // int count=0;
-    long long int max=10000000;
-    arr[0]=1;
-    arr[1]=1;
-    for(int i=2; i*i<=max; i++)
-    {
-        if(arr[i]==false)
-        {
-            v.push_back(i);
-            for(int j=i*i; j<=max; j=j+i)
-                arr[j]=1;
-        }
-    }
-    // for(int i=1; i<=max; i++)
-    //if(arr[i]==false)
-    //{
-    //v.push_back(i);
 
-    //}
+using ll  = long long;
+using ull = unsigned ll;
+using ld  = long double;
+using pi  = pair<int, int>;
+using pii = pair<ll, ll>;
+using vi  = vector<int>;
+using vii = vector<ll>;
+using vip = vector<pair<int, int>>;
+using viip = vector<pair<ll, ll>>;
+
+const int MAX_N = 1e5 + 1;
+ll mod = 1e9 + 7;
+const ll INF = 1e18;
+
+#define PI           3.141592653589793238
+#define fir          first
+#define sec          second
+#define all(x)       (x).begin(),(x).end()
+#define rall(x)      (x).rbegin(),(x).rend()
+#define pb           push_back
+#define mp           make_pair
+#define loop(i,n,x)  for(int i=n;i<x;i++)
+#define sz(a)        ((int) (a).size())
+#define For(n,x)     for(int i=1;i<=x;i++)
+#define ite          iterator it
+#define fast         ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define test         ll t;cin>>t; while(t--){solve();}
+#define in           insert
+#define ms(a,x)      memset(a, x, sizeof(a))
+
+void oj()
+{
+
+
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
 }
-
-
-ll binaryexpo(int x,int p)
+ll bigmod(ll b, ll p, ll m)
 {
-    ll res=1;
-    while(p!=0)
-    {
-
-        if(p%2==1)
-        {
-            res*=x;
-            p--;
-        }
-        x*=x;
-        p/=2;
-
-    }
-    return res;
-}
-ll bigmod(ll b,ll p,ll m)
-{
-    int res=1;
-    while(p!=0)
-    {
-        if(p%2!=0)
-        {
-            res=((res%m)*(b%m))%m;
-            p--;
-
-
-        }
-
-        b=((b%m)*(b%m))%m;
-        p/=2;
-
-
+    ll res = 1;
+    while (p != 0)
+    {   if (p % 2 != 0)
+            res = ((res % m) * (b % m)) % m, p--;
+        b = ((b % m) * (b % m)) % m, p /= 2;
     }
     return res;
 }
-ll gcd(long long int a,long long int b)
+ll MOD(ll num) { return ((num % mod + mod) % mod); }
+
+ll modAdd(ll a, ll b) { return MOD(MOD(a) + MOD(b)); }
+
+ll modSub(ll a, ll b) { return MOD(MOD(a) - MOD(b)); }
+
+ll modMul(ll a, ll b) { return MOD(MOD(a) * MOD(b)); }
+
+ll modDiv(ll a, ll b) { return modMul(a, bigmod(b, mod - 2, mod)); }
+
+ll lcm(ll a, ll b) {return (a / __gcd(a, b)) * b;}
+
+ll ceilll(ll x, ll y) {return (x + y - 1ll) / y;}
+
+
+void solve()
+
 {
-    while(a!=0)
-    {
-        long long int temp=b;
-        b=a;
-        a=temp%a;
-    }
-    return b;
-
 
 }
-int ext_gcd(int a, int b, int& x, int& y) {
-    if (b == 0) {
-        x = 1;
-        y = 0;
-        return a;
-    }
-    int x1, y1;
-    int d = ext_gcd(b, a % b, x1, y1);
-    x = y1;
-    y = x1 - y1 * (a / b);
-    return d;
-}
-ll lcm(ll a,ll b)
-{
-    return (a/gcd(a,b))*b;
-}
-ll add(ll a,ll b,ll m)
-{
-    return (a%m+b%m)%m;
-}
-ll mul(ll a,ll b,ll m)
-{
-    return (a%m*b%m)%m;
-}
 
 
-int divisor(ll n)
-{
-    int i=0;
-    int div=1;
 
-    while(n!=1)
-    {
-        int count=1;
-        if(n%v[i]==0)
-        {
-            while(n%v[i]==0)
-            {
-                count++;
-                n/=v[i];
-            }
-        }
-        i++;
-        div*=count;
 
-    }
-    return div;
-    //cout<<div<<endl;
 
-}
+
+
+
 
 int main()
 {
-    while(1)
-    {
-        int a,b,x,y;
-        cin>>a>>b;
-        int ans=ext_gcd(a,b,x,y);
-        cout<<ans<<endl;
-        cout<<x<<endl<<y<<endl;
-       cout<< gcd(a,b);
 
-    }
+
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+
+   oj();
+
+   // test;
+   solve();
+
+
+    // int t;
+    // cin >> t;
+    // cin.ignore();
+    // for ( int test_case = 1; test_case <= t; test_case++ )
+    // {
+    //  //cout << "Case " << test_case << ": ";
+    //  solve();
+    // }
+
+
 }
-
-
-
-
